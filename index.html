@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container calculator-body">
+        <div class="container">
+            <input  id="display" type="text">
+            <div class="row">
+                <div class="col-md-3">
+                    <button class="form-control "id="button7"> 7 </button>
+                </div>
+                <div class="col-md-3">
+                    <button class="form-control "id="button8"> 8 </button>
+                </div>
+                <div class="col-md-3">
+                    <button class="form-control "id="button9"> 9 </button>
+                </div>
+                <div class="col-md-3">
+                    <button class="form-control "id="button/"> / </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <button class="form-control "id="button6"> 6 </button>
+                </div>
+                <div class="col-md-3">
+                    <button class="form-control "id="button5"> 5 </button>
+                </div>
+                <div class="col-md-3">
+                    <button class="form-control "id="button4"> 4 </button>
+                </div>
+                <div class="col-md-3">
+                    <button class="form-control "id="buttonx"> x </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <button class="form-control "id="button3"> 3 </button>
+                </div>
+                <div class="col-md-3">
+                    <button class="form-control "id="button2"> 2 </button>
+                </div>
+                <div class="col-md-3">
+                    <button class="form-control "id="button1"> 1 </button>
+                </div>
+                <div class="col-md-3">
+                    <button class="form-control" id="button-"> - </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <button class="form-control "id="buttonc"> c </button>
+                </div>
+                <div class="col-md-3">
+                    <button class="form-control "id="button0"> 0 </button>
+                </div>
+                <div class="col-md-3">
+                    <button class="form-control "id="button="> = </button>
+                </div>
+                <div class="col-md-3">
+                    <button class="form-control "id="button+"> + </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        function button(num){
+            document.getElementById("display").value = document.getElementById("display").value + num;
+        }
+
+        var previous_value = "";
+        var current_value = "";
+        var operation = "";
+
+        function signButton(sign){
+           previous_value = parseFloat(document.getElementById("display").value);
+           document.getElementById("display").value = ""; 
+           operation = sign;
+        }
+
+
+        document.getElementById("button+").addEventListener("click", function(){
+            signButton("+");
+        });
+
+        document.getElementById("button-").addEventListener("click", function(){
+            signButton("-");
+        });
+
+        document.getElementById("buttonx").addEventListener("click", function(){
+            signButton("x");
+        });
+
+        document.getElementById("button/").addEventListener("click", function(){
+            signButton("/");
+        });
+
+        document.getElementById("button=").addEventListener("click" , function(){
+            current_value = parseFloat(document.getElementById("display").value);
+            if(operation == "+"){
+                document.getElementById("display").value = previous_value + current_value ;
+            }
+            else if(operation == "-"){
+                document.getElementById("display").value = previous_value - current_value ;
+            }
+            else if(operation == "x"){
+                document.getElementById("display").value = previous_value * current_value ;
+            }
+            else if(operation == "/"){
+                document.getElementById("display").value = previous_value / current_value ;
+            }
+        });
+
+        document.getElementById("buttonc").addEventListener("click", function(){
+            document.getElementById("display").value = "";
+        });
+
+
+
+        document.getElementById("button7").addEventListener("click", function(){
+            button( document.getElementById("button7").innerText);
+        } );
+
+        document.getElementById("button8").addEventListener("click", function(){
+            button( document.getElementById("button8").innerText);
+        } );
+
+        document.getElementById("button9").addEventListener("click", function(){
+            button( document.getElementById("button9").innerText);
+        } );
+
+        document.getElementById("button6").addEventListener("click", function(){
+            button( document.getElementById("button6").innerText);
+        } );
+
+        document.getElementById("button5").addEventListener("click", function(){
+            button( document.getElementById("button5").innerText);
+        } );
+
+        document.getElementById("button4").addEventListener("click", function(){
+            button( document.getElementById("button4").innerText);
+        } );
+
+        document.getElementById("button3").addEventListener("click", function(){
+            button( document.getElementById("button3").innerText);
+        } );
+
+        document.getElementById("button2").addEventListener("click", function(){
+            button( document.getElementById("button2").innerText);
+        } );
+
+        document.getElementById("button1").addEventListener("click", function(){
+            button( document.getElementById("button1").innerText);
+        } );
+
+        document.getElementById("button0").addEventListener("click", function(){
+            button( document.getElementById("button0").innerText);
+        } );
+
+
+    </script>
+</body>
+</html>
